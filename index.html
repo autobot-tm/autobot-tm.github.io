@@ -3,196 +3,481 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
-    <title>Frontend Mentor | Recipe page</title>
+    <title>Instagram</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-      .attribution {
-        margin-top: 16px;
-        font-size: 12px;
-        text-align: center;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+          sans-serif;
       }
-
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-
-      /* Your code here */
       body {
-        /* Bonus: áp dụng 1 font chữ mà bạn muốn cho trang web của mình  */
-        font-family: 'Open Sans', sans-serif;
-        font-optical-sizing: auto;
-        font-style: normal;
-        font-variation-settings: 'wdth' 100;
-        /* Background color của body là màu antiquewhite */
-        background-color: antiquewhite;
-        /* Căn giữa phần nội dung chính của trang */
-        margin: 0 auto;
-        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100vh;
+        background-color: cadetblue;
       }
-
-      /* Phần nội dung chính (phần có id là content) có margin và padding là 20px , background color là màu white ,
-       và có border-radius là  12px */
-      #content {
+      .iphone {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
         background-color: white;
-        border-radius: 12px;
-        margin: 20px;
+        border: 5px solid black;
+        width: 400px;
+        height: 800px;
+        border-radius: 50px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+          rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        overflow: hidden;
+      }
+      .iphone > footer {
+        border-radius: 0 0 48px 48px;
+        z-index: 1;
+        width: 100%;
+        height: 86px;
+      }
+      .iphone > header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 18px 20px;
+      }
+      header figure > img {
+        width: 24px;
+        height: 24px;
+      }
+      header figure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
         padding: 20px;
       }
-
-      /* Phần hình đầu trang nằm gọn trong phần content và có border-radius là 16px */
-      #content header > img[src$='.jpeg'] {
+      header figure:hover {
+        cursor: pointer;
+      }
+      main {
         width: 100%;
-        border-radius: 16px;
+        height: fit-content;
+        padding: 0 20px;
       }
-
-      /* Chỉ có màu chữ của title (tag h1, h2,...) trong tag main  là có màu crimson */
-      main section h2,
-      h3 {
-        color: crimson;
+      main div#profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-
-      /* Section prepare có màu nền là #ffeff1 , padding là 16px, và border-radius là 12px */
-      main section.prepare {
-        background-color: #ffeff1;
-        padding: 16px;
-        border-radius: 12px;
+      main div#profile .follow {
+        display: flex;
+        gap: 20px;
       }
+      main div#profile > img {
+        width: 80px;
+        height: 80px;
+      }
+      main div#introduce {
+        padding: 10px 0;
+        text-align: start;
+      }
+      main div#introduce p.link {
+        color: rgb(23, 23, 158);
+      }
+      main div#container-btn {
+        display: flex;
+        justify-content: space-between;
 
-      /* Phần table sẽ mở rộng ra hết phần content, chữ trong bảng sẽ căn lề trái và có padding-left là 16px. 
-      Kẻ thêm border  cho bảng như hình với đường kẻ có độ dày là 1px , nét liền và có màu black. */
-      main section table {
+        gap: 6px;
         width: 100%;
-        text-align: left;
-        border: 1px solid black;
-        border-spacing: 0;
       }
-
-      main section table tr :is(th, td) {
-        border: 1px solid black;
-        padding-left: 16px;
+      div#container-btn button {
+        border: 0;
+        padding: 6px;
+        border-radius: 6px;
+        cursor: pointer;
       }
-      /* Your code here */
+      div#container-btn button:nth-of-type(1) {
+        background-color: #0097fe;
+        width: 45%;
+        color: white;
+        font-weight: 500;
+      }
+      div#container-btn button:nth-of-type(2) {
+        background-color: #efefef;
+        width: 45%;
+        font-weight: 500;
+      }
+      div#container-btn button:nth-last-of-type(1) {
+        background-color: #efefef;
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      div#container-btn button img {
+        width: 18px;
+        height: 18px;
+      }
+      main div#highlights {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin: 10px 0;
+      }
+      main div#highlights .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        width: 20%;
+      }
+      main div#highlights .container-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+      }
+      main div#highlights .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      article {
+        height: fit-content;
+      }
+      article div#container-post .tabs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+      }
+      article div#container-post .active {
+        border-bottom: 2px solid black !important;
+      }
+      article div#container-post .tab-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32.7%;
+        height: 100%;
+        cursor: pointer;
+        border-bottom: 2px solid white;
+      }
+      article div#container-post img {
+        width: 28px;
+        height: 28px;
+      }
+      article div#container-post {
+        height: 100%;
+      }
+      article div#container-post .posts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(32%, 1fr));
+        grid-gap: 4px;
+        overflow: auto;
+        overflow: -moz-scrollbars-none;
+        -ms-overflow-style: none;
+        max-height: 66%;
+        padding-top: 4px;
+      }
+      article div#container-post .posts::-webkit-scrollbar {
+        width: 0 !important;
+        display: none;
+      }
+      article div#container-post .post-item {
+        position: relative;
+        width: fit-content;
+      }
+      article div#container-post .post-item p {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 4px;
+        left: 4px;
+        color: white;
+      }
+      article div#container-post .post-item img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+      }
+      nav div.nav-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1/1;
+        width: 20%;
+        height: 100%;
+        font-size: 14px;
+        text-align: center;
+      }
+      nav div.nav-item:nth-last-of-type(1) {
+        border-bottom-right-radius: 48px;
+      }
+      nav div.nav-item:nth-of-type(1) {
+        border-bottom-left-radius: 48px;
+      }
+      nav div.nav-item figure {
+        border-radius: 50%;
+      }
+      nav div.nav-item figure:hover {
+        cursor: pointer;
+        box-shadow: inset;
+      }
+      nav div.nav-item figure > img {
+        height: 28px;
+        width: 28px;
+      }
+      footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        bottom: 0;
+      }
+      footer > nav {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 0 0 50px 50px;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+      footer > hr {
+        background-color: black;
+        border-radius: 20px;
+        border: 1px solid black;
+        position: absolute;
+        height: 5px;
+        width: 28%;
+        bottom: 6px;
+      }
     </style>
   </head>
-
   <body>
-    <div id="content">
-      <header>
-        <img src="images/image-omelette.jpeg" alt="omelette" srcset="" />
-        <h1>Simple Omelette Recipe</h1>
-
-        <p>
-          An easy and quick dish, perfect for any meal. This classic omelette
-          combines beaten eggs cooked to perfection, optionally filled with your
-          choice of cheese, vegetables, or meats.
-        </p>
-      </header>
-
-      <main>
-        <section class="prepare">
-          <h3>Preparation time</h3>
-          <ul>
-            <li><strong>Total:</strong> Approximately 10 minutes</li>
-            <li><strong>Preparation:</strong> 5 minutes</li>
-            <li><strong>Cooking:</strong> 5 minutes</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Ingredients</h2>
-          <ul>
-            <li>2-3 large eggs</li>
-            <li>Salt, to taste</li>
-            <li>Pepper, to taste</li>
-            <li>1 tablespoon of butter or oil</li>
-            <li>
-              Optional fillings: cheese, diced vegetables, cooked meats, herbs
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Instructions</h2>
-          <ol>
-            <li>
-              <strong>Beat the eggs:</strong> In a bowl, beat the eggs with a
-              pinch of salt and pepper until they are well mixed. You can add a
-              tablespoon of water or milk for a fluffier texture.
-            </li>
-
-            <li>
-              <strong>Heat the pan:</strong> Place a non-stick frying pan over
-              medium heat and add butter or oil.
-            </li>
-
-            <li>
-              <strong>Cook the omelette:</strong> Once the butter is melted and
-              bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly
-              coat the surface.
-            </li>
-
-            <li>
-              <strong>Add fillings (optional):</strong> When the eggs begin to
-              set at the edges but are still slightly runny in the middle,
-              sprinkle your chosen fillings over one half of the omelette.
-            </li>
-
-            <li>
-              <strong>Fold and serve</strong>: As the omelette continues to
-              cook, carefully lift one edge and fold it over the fillings. Let
-              it cook for another minute, then slide it onto a plate.
-            </li>
-
-            <li>
-              <strong>Enjoy:</strong> Serve hot, with additional salt and pepper
-              if needed.
-            </li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Nutrition</h2>
-          <p>
-            The table below shows nutritional values per serving without the
-            additional fillings.
-          </p>
-
-          <table>
-            <tr>
-              <th>Calories</th>
-              <td>277kcal</td>
-            </tr>
-
-            <tr>
-              <th>Carbs</th>
-              <td>0g</td>
-            </tr>
-
-            <tr>
-              <th>Protein</th>
-              <td>20g</td>
-            </tr>
-
-            <tr>
-              <th>Fat</th>
-              <td>22g</td>
-            </tr>
-          </table>
-        </section>
-      </main>
-
-      <footer class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <strong>Your Name Here</strong>.
-      </footer>
+    <div>
+      <!-- <h1>Flexbox</h1> -->
+      <div class="iphone">
+        <header>
+          <figure>
+            <img src="./images/fluent--ios-arrow-24-filled.png" alt="" />
+          </figure>
+          <span>nmthanh.19</span>
+          <figure>
+            <img src="./images/tabler--dots.png" alt="" />
+          </figure>
+        </header>
+        <main>
+          <div id="profile">
+            <img src="https://avatar.iran.liara.run/public/38" alt="" />
+            <div class="follow">
+              <span>
+                <p>143</p>
+                <p>Posts</p>
+              </span>
+              <span>
+                <p>560</p>
+                <p>Followers</p>
+              </span>
+              <span>
+                <p>505</p>
+                <p>Following</p>
+              </span>
+            </div>
+          </div>
+          <div id="introduce">
+            <p>Minh Thành</p>
+            <p class="link">#nodejs</p>
+          </div>
+          <div id="container-btn">
+            <button>Follow</button>
+            <button>Message</button>
+            <button><img src="./images/bx--user-plus.png" alt="" /></button>
+          </div>
+          <div id="highlights">
+            <div class="content">
+              <div class="container-item">
+                <div class="item">1</div>
+              </div>
+              <p>#daily</p>
+            </div>
+            <div class="content">
+              <div class="container-item">
+                <div class="item">2</div>
+              </div>
+              <p>#travel</p>
+            </div>
+            <div class="content">
+              <div class="container-item">
+                <div class="item">3</div>
+              </div>
+              <p>#food</p>
+            </div>
+            <div class="content">
+              <div class="container-item">
+                <div class="item">4</div>
+              </div>
+              <p>#vlog</p>
+            </div>
+            <div class="content">
+              <div class="container-item">
+                <div class="item">5</div>
+              </div>
+              <p>#friends</p>
+            </div>
+          </div>
+        </main>
+        <article>
+          <div id="container-post">
+            <div class="tabs">
+              <div class="tab-item active">
+                <img src="./images/uis--table.png" alt="" />
+              </div>
+              <div class="tab-item">
+                <img
+                  src="./images/solar--video-frame-play-horizontal-linear.png"
+                  alt=""
+                />
+              </div>
+              <div class="tab-item">
+                <img src="./images/tdesign--user-avatar.png" alt="" />
+              </div>
+            </div>
+            <div class="posts">
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+                <p>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19.5 12.572L12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.572"
+                    />
+                  </svg>
+                  1000
+                </p>
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+              <div class="post-item">
+                <img
+                  src="https://picsum.photos/200/300"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </article>
+        <footer>
+          <nav>
+            <div class="nav-item">
+              <figure>
+                <img src="./images/octicon--home-24.png" alt="" />
+              </figure>
+            </div>
+            <div class="nav-item">
+              <figure>
+                <img src="./images/mingcute--search-line.png" alt="" />
+              </figure>
+            </div>
+            <div class="nav-item">
+              <figure>
+                <img src="./images/mynaui--plus-square.png" alt="" />
+              </figure>
+            </div>
+            <div class="nav-item">
+              <figure>
+                <img
+                  src="./images/solar--video-frame-play-horizontal-linear.png"
+                  alt=""
+                />
+              </figure>
+            </div>
+            <div class="nav-item">
+              <figure>
+                <img src="https://avatar.iran.liara.run/public/38" alt="" />
+              </figure>
+            </div>
+          </nav>
+          <hr />
+        </footer>
+      </div>
     </div>
   </body>
 </html>

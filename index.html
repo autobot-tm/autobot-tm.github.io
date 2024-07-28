@@ -1,21 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>On Demand Tutor</title>
-    <script type="module" crossorigin src="/assets/index-CDWSzKR9.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BNoHQaKj.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script
-      id="kami-chat-widget"
-      src="https://kamimind.ai/kami-chat-widget.js"
-      token="q0QZBQavU1CMMiD5GV28TXgdrUZlyLzm"
-      charset="utf-8"
-      botToken="10a1c5f7-ed5a-4ef7-aeb6-066c2abe8b1e"
-      defer></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./temp.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Temperature Converter</title>
+</head>
+
+<body id="body">
+    <main>
+        <section class="thermometer">
+            <div class="stem">
+                <div class="stem-perct"></div>
+                <div class="marker" style="bottom: -2%">&nbsp;&nbsp;100</div>
+                <div class="marker" style="bottom: 8%">&#10521;90</div>
+                <div class="marker" style="bottom: 18%">&#10521;80</div>
+                <div class="marker" style="bottom: 27.8%">&#10521;70</div>
+                <div class="marker" style="bottom: 37.7%">&#10521;60</div>
+                <div class="marker" style="bottom: 47.6%">&#10521;50</div>
+                <div class="marker" style="bottom: 57.5%">&#10521;40</div>
+                <div class="marker" style="bottom: 67.4%">&#10521;30</div>
+                <div class="marker" style="bottom: 77.2%">&#10521;20</div>
+                <div class="marker" style="bottom: 87.1%">&#10521;10</div>
+            </div>
+            <div class="bulb"></div>
+        </section>
+        <div>
+            <h1>Temperature Converter</h1>
+            <div>
+                <span>Celsius:</span> <span><input type="number" value="" onchange="handleTemp('celsius')" id="celsius"
+                        placeholder="Enter Temperature">&#8451;</span>
+            </div>
+            <div>
+                <span>Fahrenheit:</span> <span> <input type="number" value="" onchange="handleTemp('fahrenheit')"
+                        id="fahrenheit" placeholder="Enter Temperature">&#8457;</span>
+            </div>
+            <div>
+                <span>Kelvin:</span> <span><input type="number" value="" onchange="handleTemp('kelvin')" id="kelvin"
+                        placeholder="Enter Temperature">&#176;&#8490;</span>
+            </div>
+        </div>
+    </main>
+</body>
+
 </html>

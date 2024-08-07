@@ -1,48 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- [Delete this comment] This file is the main file for the challenge. For the most part, you should be editing this file. -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./temp.js" defer></script>
-    <link rel="stylesheet" href="./style.css">
-    <title>Temperature Converter</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hero Section | GreatFrontEnd Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Tailwind CDN allows you to use Tailwind classes immediately in your HTML without any installation steps. 
+      If you're not using Tailwind, you may delete the <script> -->
+  <!-- Get started on Tailwind: https://tailwindcss.com/docs/installation/play-cdn -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script>-->
+
+  <link rel="icon" href="img/favicon.ico" sizes="any" />
+  <style>
+    /* You may write styles inside this <style> tag or within `css/style.css`. */
+  </style>
 </head>
 
-<body id="body">
-    <main>
-        <section class="thermometer">
-            <div class="stem">
-                <div class="stem-perct"></div>
-                <div class="marker" style="bottom: -2%">&nbsp;&nbsp;100</div>
-                <div class="marker" style="bottom: 8%">&#10521;90</div>
-                <div class="marker" style="bottom: 18%">&#10521;80</div>
-                <div class="marker" style="bottom: 27.8%">&#10521;70</div>
-                <div class="marker" style="bottom: 37.7%">&#10521;60</div>
-                <div class="marker" style="bottom: 47.6%">&#10521;50</div>
-                <div class="marker" style="bottom: 57.5%">&#10521;40</div>
-                <div class="marker" style="bottom: 67.4%">&#10521;30</div>
-                <div class="marker" style="bottom: 77.2%">&#10521;20</div>
-                <div class="marker" style="bottom: 87.1%">&#10521;10</div>
-            </div>
-            <div class="bulb"></div>
-        </section>
-        <div>
-            <h1>Temperature Converter</h1>
-            <div>
-                <span>Celsius:</span> <span><input type="number" value="" onchange="handleTemp('celsius')" id="celsius"
-                        placeholder="Enter Temperature">&#8451;</span>
-            </div>
-            <div>
-                <span>Fahrenheit:</span> <span> <input type="number" value="" onchange="handleTemp('fahrenheit')"
-                        id="fahrenheit" placeholder="Enter Temperature">&#8457;</span>
-            </div>
-            <div>
-                <span>Kelvin:</span> <span><input type="number" value="" onchange="handleTemp('kelvin')" id="kelvin"
-                        placeholder="Enter Temperature">&#176;&#8490;</span>
-            </div>
+<body>
+  <!-- Add your site or application content here -->
+  <!-- <h1 class="text-5xl text-center font-semibold pt-20">
+      Hello world! Write your content here.
+    </h1> -->
+
+  <main>
+    <section class="title">
+      <h5>Pricing Tiers</h5>
+      <h1>Fit for all you needs</h1>
+      <span>Pick the plan that suit you today and step up as your demands grow - our flexible options have your journey
+        mapped out.</span>
+    </section>
+    <section class="optional">
+      <div id="monthly" onclick="onOptional(1)">Monthly</div>
+      <div id="annually" onclick="onOptional(2)">Annually</div>
+    </section>
+    <section class="container-card">
+      <div class="card" id="card" onclick="onClickCard(1)">
+        <div class=" card-info">
+          <div class="title">
+            <h3>Basic Plan</h3>
+            <span>
+              Access to a curated selection of abstract images
+            </span>
+          </div>
+          <div class="price">
+            <span id="price-item">
+              <h1 id="basic-price">$9.99</h1> / month
+            </span>
+            <span>Billed monthly</span>
+          </div>
+          <div class="description">
+            <p><i><img src="./img/tick.svg" alt="tick"></i> Standard quality images</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Limited to personal use </p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Email support</p>
+          </div>
         </div>
-    </main>
+        <div class="buy-btn" id="buy">
+          Buy now
+        </div>
+      </div>
+      <div class="card" id="card2" onclick="onClickCard(2)">
+        <div class="banner">
+          Most Popular
+        </div>
+        <div class="card-info most">
+          <div class="title">
+            <h3>Standard Plan</h3>
+            <span>
+              Next-level Integrations, priced economically
+            </span>
+          </div>
+          <div class="price">
+            <span id="price-item">
+              <h1 id="standard-price">$19.99</h1> / month
+            </span>
+            <span>Billed monthly</span>
+          </div>
+          <div class="description">
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Expanded libary with more diverse abstract images</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>High-resolution images available</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Suitable for commercial use</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Priority email support</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Advanced analytics</p>
+          </div>
+        </div>
+        <div class="buy-btn active" id="buy1">
+          Buy now
+        </div>
+      </div>
+      <div class="card" id="card3" onclick="onClickCard(3)">
+        <div class="card-info">
+          <div class="title">
+            <h3>Premium Plan</h3>
+            <span>
+              Experience limitless living for power
+            </span>
+          </div>
+          <div class="price">
+            <span id="price-item">
+              <h1 id="premium-price">$29.99</h1> / month
+            </span>
+            <span>Billed monthly</span>
+          </div>
+          <div class="description">
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Full access to the entire image libary, including exclusive
+              content</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Highest quality images, including premium collections</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Commercial and resale rights</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Dedicatedd customer support line</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>24/7 support response time</p>
+            <p><i><img src="./img/tick.svg" alt="tick"></i>Advanced analytics and insights</p>
+          </div>
+        </div>
+        <div class="buy-btn" id="buy2">
+          Buy now
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Attribute this challenge to yourself! -->
+  <!-- <div class="credits">
+    A challenge by
+    <a href="https://www.greatfrontend.com/projects?ref=challenges" target="_blank">GreatFrontEnd Projects</a>. Built by
+    <a href="https://www.greatfrontend.com/u/your_username" target="_blank">Your Name</a>.
+  </div> -->
+  <script src="js/index.js" defer></script>
 </body>
 
 </html>
